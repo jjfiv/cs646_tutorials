@@ -173,7 +173,7 @@ You can download the Galago index for the example corpus at https://github.com/j
 Lucene does not have a command line tool for indexing (as far as I know).
 You need to write your own program to build an index.
 This is the one I used for the example corpus.
-```
+```java
 String pathCorpus = "/home/jiepu/Downloads/example_corpus.gz";
 String pathIndex = "/home/jiepu/Downloads/example_index_lucene";
 
