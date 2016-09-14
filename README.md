@@ -147,12 +147,12 @@ Galago supports many corpus formats widely used in the IR community such as trec
 Galago has a command line tool for building index.
 You can get help information by running:
 ```
-{you galago path}/bin/galago build
+{your galago path}/bin/galago build
 ```
 
 To build an index for the example corpus, simply run:
 ```
-{you galago path}/bin/galago build --indexPath={path of your index} --inputPath+{path of example_corpus.gz} --nonStemmedPostings=true --stemmedPostings=true --stemmer+krovetz --corpus=true --tokenizer/fields+title --tokenizer/fields+author --tokenizer/fields+source --tokenizer/fields+text
+{your galago path}/bin/galago build --indexPath={path of your index} --inputPath+{path of example_corpus.gz} --nonStemmedPostings=true --stemmedPostings=true --stemmer+krovetz --corpus=true --tokenizer/fields+title --tokenizer/fields+author --tokenizer/fields+source --tokenizer/fields+text
 ```
 
 Note that although the fields in the corpus file are in uppercase, you need to use lowercased ones such as ```--tokenizer/fields+text``` in the parameter. For trectext format corpus, Galago will automatically store and index the docno field as metadata. 
@@ -337,6 +337,7 @@ Retrieval retrieval = RetrievalFactory.instance( indexPath, Parameters.create() 
 long docid = 5;
 retrieval.getDocumentName( (int) docid ); // get the docno for the internal docid = 5
 // Well, Galago has some inconsistencies regarding whether to use integer or long integer for internal docids.
+// This is a bug in the current version: https://sourceforge.net/p/lemur/bugs/289/
 
 String docno = "ACM-1835461";
 retrieval.getDocumentId( docno ); // get the internal docid for docno "ACM-1835461"
@@ -632,9 +633,11 @@ int docid = 21;
 
 // make sure you stored the corpus when building index (--corpus=true)
 Retrieval index = RetrievalFactory.instance( pathIndexBase );
-Document.DocumentComponents dc = new Document.DocumentComponents( false, false, true );
+// Tell Galago not to worry about Metadata
+Document.DocumentComponents dc = Document.DocumentComponents.JustTerms;
 
 // now you've retrieved a document stored in the index (including all fields)
+// Note that Galago only stores the raw text of the document, so it gets tokenized at this point, making this operation possibly expensive or slow, depending on the length of your document.
 Document doc = index.getDocument( index.getDocumentName( docid ), dc );
 
 // doc.terms will return a list of tokens in the document (including all fields).
