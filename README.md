@@ -226,7 +226,7 @@ fieldTypeText.freeze();
 // create a Document object for the parsed document, and add that
 // Document object by calling addDocument().
 
-// Well, the following only works for small text files. DO NOT follow this part in your homework!
+// Well, the following three lines for parsing the example corpus only works for small text files. DO NOT follow this part in your homework!
 InputStream instream = new GZIPInputStream( new FileInputStream( pathCorpus ) );
 String corpusText = new String( IOUtils.toByteArray( instream ), "UTF-8" );
 instream.close();
@@ -374,12 +374,13 @@ The entries are sorted by docids such that you can efficiently compare and merge
 
 #### Galago
 
+The following program retrieves the posting list for a term ```reformulation``` in the ```text``` field from the Galgo index:
 ```java
 String pathIndex = "/home/jiepu/Downloads/example_index_galago/";
 
 // Let's just retrieve the posting list for the term "reformulation" in the "text" field
 String field = "text";
-String term = "retrieval";
+String term = "reformulation";
 
 // by default, the posting list for a field (without using stemming) is stored as a file with the name field.{fieldname}
 File pathPosting = new File( new File( pathIndex ), "field." + field );
@@ -433,6 +434,7 @@ DOCID     DOCNO          FREQ
 
 #### Lucene
 
+The following program retrieves the posting list for a term ```reformulation``` in the ```text``` field from the Lucene index:
 ```java
 String pathIndex = "/home/jiepu/Downloads/example_index_lucene";
 			
