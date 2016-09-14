@@ -155,7 +155,7 @@ To build an index for the example corpus, simply run:
 {you galago path}/bin/galago build --indexPath={path of your index} --inputPath+{path of example_corpus.gz} --nonStemmedPostings=true --stemmedPostings=true --stemmer+krovetz --corpus=true --tokenizer/fields+title --tokenizer/fields+author --tokenizer/fields+source --tokenizer/fields+text
 ```
 
-Note that although the fields in the corpus file are in uppercase, you need to use lowercased ones in the parameter. For trectext format corpus, Galago will automatically store and index the docno field as metadata. 
+Note that although the fields in the corpus file are in uppercase, you need to use lowercased ones such as ```--tokenizer/fields+text``` in the parameter. For trectext format corpus, Galago will automatically store and index the docno field as metadata. 
 
 If the corpus is large, it will take Galago some time to finish the index.
 You can monitor the progress by appending the following parameters to ```galago build```
