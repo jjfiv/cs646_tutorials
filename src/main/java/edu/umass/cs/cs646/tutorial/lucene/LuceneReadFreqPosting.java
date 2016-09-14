@@ -1,6 +1,6 @@
-package edu.cs.umass.cs646.tutorial.lucene;
+package edu.umass.cs.cs646.tutorial.lucene;
 
-import edu.cs.umass.cs646.utils.LuceneUtils;
+import edu.umass.cs.cs646.utils.LuceneUtils;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.MultiFields;
@@ -10,8 +10,6 @@ import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.BytesRef;
 
 import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * This is an example for accessing a term-document-frequency posting list from a Lucene index.

@@ -1,4 +1,4 @@
-package edu.cs.umass.cs646.tutorial.lucene;
+package edu.umass.cs.cs646.tutorial.lucene;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;

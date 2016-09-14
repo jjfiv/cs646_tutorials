@@ -346,7 +346,7 @@ retrieval.getDocumentId( docno ); // get the internal docid for docno "ACM-18354
 
 Transforming between external and internal IDs is a little bit more complex in Lucene 
 (because it is not designed for IR research). To help you get started quickly, we provide
-a utility class ```edu.cs.umass.cs646.utils.LuceneUtils``` to help you transform between 
+a utility class ```edu.umass.cs.cs646.utils.LuceneUtils``` to help you transform between 
 the two IDs.
 
 Note that unlike Galago (which automatically parses and stores the docno field as metadata), 

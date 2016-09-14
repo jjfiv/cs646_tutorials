@@ -1,4 +1,4 @@
-package edu.cs.umass.cs646.utils;
+package edu.umass.cs.cs646.utils;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.*;

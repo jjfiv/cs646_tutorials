@@ -1,4 +1,4 @@
-package edu.cs.umass.cs646.tutorial.galago;
+package edu.umass.cs.cs646.tutorial.galago;
 
 import org.lemurproject.galago.core.index.disk.DiskIndex;
 import org.lemurproject.galago.core.index.stats.FieldStatistics;
